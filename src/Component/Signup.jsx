@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import {  useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { newUser } from "../Utils/validate";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {
+
+  const navigate =useNavigate()
   const {
     values,
     errors,
@@ -35,6 +37,7 @@ const Signup = () => {
           // Signed up
           const user = userCredential.user;
         console.log(user)
+        navigate("/browser") 
           
         })
         .catch((error) => {

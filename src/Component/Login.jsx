@@ -59,7 +59,7 @@ const Login = () => {
                 <form action="" onSubmit={handleSubmit}>
                   <div className="form_div">
                     <div className="mt-3 mb-3">
-                      <h2 className="text-white ">Sign In</h2>
+                      <h2 className="text-white  ">Sign In</h2>
                     </div>
 
                     <div className="row gap-3">
