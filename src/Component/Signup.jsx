@@ -4,7 +4,10 @@ import {  useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { newUser } from "../Utils/validate";
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Utils/firebase";
+
+// import { auth } from "../Utils/firebase";
 
 const Signup = () => {
 
@@ -30,11 +33,12 @@ const Signup = () => {
     onSubmit: (values) => {
       console.log(values);
       handleReset();
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, values.email, values.password)
+      // const auth = getAuth(app);
+      
+      createUserWithEmailAndPassword(auth, values.email, values.password ,values.name)
      
         .then((userCredential) => {
-          // Signed up
+         
           const user = userCredential.user;
         console.log(user)
         navigate("/browser") 
@@ -43,7 +47,7 @@ const Signup = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          // ..
+     
         });
     },
   });

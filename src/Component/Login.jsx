@@ -1,9 +1,11 @@
 import { useFormik } from "formik";
 import { existUser } from "../Utils/validate";
-import { NavLink, useNavigate } from "react-router-dom";
-import { app } from "../Utils/firebase";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { NavLink, json, useNavigate } from "react-router-dom";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { auth } from "../Utils/firebase";
+
 
 const Login = () => {
   const [errorMessage,setErroMessage]=useState();
@@ -25,11 +27,12 @@ const Login = () => {
     onSubmit: (values) => {
       console.log(values);
       console.log(values.email);
-      const auth = getAuth(app);
+      
       signInWithEmailAndPassword(auth, values.email, values.password)
         .then((userCredential) => {
-          // Signed in
+
           const user = userCredential.user;
+          console.log('this is the user :' +user.toJSON)
           console.log(user);
           navigate("/browser")
          
@@ -46,6 +49,7 @@ const Login = () => {
 
   return (
     <div className="">
+      
       <div>
         <div className="bg_shadow">
           <img
