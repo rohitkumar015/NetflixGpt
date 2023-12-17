@@ -6,12 +6,15 @@ import { newUser } from "../Utils/validate";
 
 import {  createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Utils/userSlice";
 
 // import { auth } from "../Utils/firebase";
 
 const Signup = () => {
 
   const navigate =useNavigate()
+  const userDispatch=useDispatch();
   const {
     values,
     errors,
@@ -40,6 +43,15 @@ const Signup = () => {
         .then((userCredential) => {
          
           const user = userCredential.user;
+          const userPayload={
+            uid: user.uid,
+            name:user.displayName,
+            email: user.email,
+          }
+
+          userDispatch(addUser(userPayload))
+
+          
         console.log(user)
         navigate("/browser") 
           

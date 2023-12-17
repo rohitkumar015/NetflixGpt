@@ -5,11 +5,14 @@ import { NavLink, json, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../Utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Utils/userSlice";
 
 
 const Login = () => {
   const [errorMessage,setErroMessage]=useState();
   const navigate =useNavigate();
+  const addUserDispatch=useDispatch()
   const {
     values,
     errors,
@@ -32,7 +35,13 @@ const Login = () => {
         .then((userCredential) => {
 
           const user = userCredential.user;
-          console.log('this is the user :' +user.toJSON)
+          const userPayload = {
+            uid: user.uid,
+            email: user.email,
+            // Add other properties you want to include
+          };
+          addUserDispatch(addUser(userPayload));
+          console.log('this is the user :' +userPayload)
           console.log(user);
           navigate("/browser")
          
