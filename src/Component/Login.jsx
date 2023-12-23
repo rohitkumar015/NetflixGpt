@@ -2,17 +2,16 @@ import { useFormik } from "formik";
 import { existUser } from "../Utils/validate";
 import { NavLink, json, useNavigate } from "react-router-dom";
 
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 
-
 const Login = () => {
-  const [errorMessage,setErroMessage]=useState();
-  const navigate =useNavigate();
-  const addUserDispatch=useDispatch()
+  const [errorMessage, setErroMessage] = useState();
+  const navigate = useNavigate();
+  const addUserDispatch = useDispatch();
   const {
     values,
     errors,
@@ -30,26 +29,37 @@ const Login = () => {
     onSubmit: (values) => {
       console.log(values);
       console.log(values.email);
-      
+
       signInWithEmailAndPassword(auth, values.email, values.password)
         .then((userCredential) => {
-
           const user = userCredential.user;
           const userPayload = {
-            uid: user.uid,
+            // uid: user.uid,
+            name: values.name,
             email: user.email,
-            // Add other properties you want to include
+          
           };
+
+          updateProfile(user, {
+            displayName: values.name,
+            
+          })
+            .then(() => {
+              // Profile updated!
+              navigate("/browser");
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
           addUserDispatch(addUser(userPayload));
-          console.log('this is the user :' +userPayload)
+          console.log( userPayload);
           console.log(user);
-          navigate("/browser")
-         
+          // navigate("/browser");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErroMessage(errorMessage)
+          setErroMessage(errorMessage);
         });
     },
   });
@@ -58,7 +68,6 @@ const Login = () => {
 
   return (
     <div className="">
-      
       <div>
         <div className="bg_shadow">
           <img
@@ -104,9 +113,11 @@ const Login = () => {
                       {errors.password && touched.password && (
                         <p className="text-red-500 m-0">{errors.password}</p>
                       )}
-                      {
-                        errorMessage && <p className="text-red-500 m-0">This email has been not registered</p>
-                      }
+                      {errorMessage && (
+                        <p className="text-red-500 m-0">
+                          This email has been not registered
+                        </p>
+                      )}
                       <div className="col-12 mt-3">
                         <button type="submit" className="netflix_btn w_135px">
                           Sign up

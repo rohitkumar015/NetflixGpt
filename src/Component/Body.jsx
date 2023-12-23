@@ -12,24 +12,7 @@ const Body = () => {
 
   const dispatch=useDispatch();
   const navigate=useNavigate();
-  useEffect(() => {
   
-   
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        
-        const { uid, email, displayName, } = user;
-       
-        console.log(user.email)
-       
-        dispatch(addUser({uid: uid, email:email, displayName:displayName}))
-        navigate('/Browser')
-      } else {
-        dispatch(removeUser())
-        navigate('/Login')
-      }
-    });
-  },[]);
    
   return (
     <></>

@@ -4,7 +4,7 @@ import {  useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { newUser } from "../Utils/validate";
 
-import {  createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
@@ -45,15 +45,24 @@ const Signup = () => {
           const user = userCredential.user;
           const userPayload={
             uid: user.uid,
-            name:user.displayName,
+            name:values.name,
             email: user.email,
+            photoURL:user.photoURL,
           }
 
-          userDispatch(addUser(userPayload))
+          updateProfile(user, {
+            displayName: values.name, photoURL: "assests/bgimages/IMG-20230526-WA0041 (1).jpg"
+          }).then(() => {
+            // Profile updated!
+            navigate("/browser") 
+          }).catch((error) => {
+            console.log(error.message)
+            navigate("/Login") 
+          });
 
-          
+          userDispatch(addUser(userPayload))
         console.log(user)
-        navigate("/browser") 
+        
           
         })
         .catch((error) => {

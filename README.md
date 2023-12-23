@@ -25,3 +25,23 @@ Here I am going to use 2 library for form validation.
         - this commmand will build the project for deployment
     -  firebase deploy
         - after running this command we will get a url link of project and our is project is hoisted .we can test for live.!!
+# Firebase Authentication
+    -createUserwithEmailandPassword
+    -signInWithemailandpassword
+    -updateUser-----Manage User
+
+# Redux Setup
+    -install react redux, Redux rtk
+    -Configure store
+    -Created UserSlice 
+
+# Created constant file (this file contain data of api , images etc ...that are constants for project)
+
+# Create a account on themoviedb
+    -get the apikey
+    -get the list of movie by using async await
+    - use of customhook -> useNowplaying
+# Created movieSlice
+    -added to store 
+
+    
