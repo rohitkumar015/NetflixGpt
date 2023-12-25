@@ -4,6 +4,7 @@ import { API_Options } from '../Utils/constant';
 import useNowPlaying from '../hooks/useNowPlaying';
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
+import useMovieTrailer from '../hooks/useMovieTrailer';
 
 const Browser = () => {
 

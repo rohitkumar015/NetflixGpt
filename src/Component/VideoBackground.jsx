@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { API_Options } from "../Utils/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { addTrailerVideo } from "../Utils/movieSlice";
+import useMovieTrailer from "../hooks/useMovieTrailer";
 
-const VideoBackground = () => {
+
+const VideoBackground = ({ movieId }) => {
+  
+ const getTrailer= useMovieTrailer(movieId);
+
+ 
   return (
-    <div>VideoBackground</div>
-  )
-}
+    <div className="">
+      <iframe
+        className="w-screen h-screen"
+        src={`https://www.youtube.com/embed/${getTrailer}?`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
 
-export default VideoBackground
+export default VideoBackground;
