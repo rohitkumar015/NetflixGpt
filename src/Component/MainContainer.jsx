@@ -10,7 +10,7 @@ const MainContainer = () => {
     
     if (!movies) return null;
 
-    const mainMovies=movies.results[1]
+    const mainMovies=movies[1]
     console.log(mainMovies)
 
     const {original_title, overview ,id}=mainMovies
@@ -21,7 +21,7 @@ const MainContainer = () => {
   
   return (
     <div className=' '>
-        <VideoTitle title={original_title} overview={overview} ></VideoTitle>
+        <VideoTitle title={original_title} overview={overview}  ></VideoTitle>
         <VideoBackground movieId={id} className="absolute top-0" ></VideoBackground>
     </div>
   )

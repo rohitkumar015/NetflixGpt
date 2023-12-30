@@ -19,3 +19,23 @@
 .text_shadow{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+.shadow_overlay::after{
+    /* content: ''; */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.456);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    /* z-index: 66; */
+
+}
+
+.text_truncate3{
+    -webkit-box-orient: vertical ;
+    display: -webkit-box;
+    -webkit-line-clamp: 2 ;
+    overflow: hidden;
+    width: 100%;
+    /* text-align: justify; */
+
+}
