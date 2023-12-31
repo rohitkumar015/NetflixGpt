@@ -8,11 +8,18 @@ const SecondaryContainer = () => {
   console.log('====================== seconndary =============')
   console.log(movies)
   return (
-    <div>
+    <div className='bg-black '>
 
-      <Movielist title="Movie List" movies={movies.nowPlayingMovies} >
+      <Movielist title="Popular Movies" movies={movies.nowPlayingMovies} >
 
       </Movielist>
+
+      <Movielist title="Top Rated"  movies={movies.topRatedPlaying} >
+
+      </Movielist>
+      <Movielist title="Upcoming "  movies={movies.upcomingMovie} >
+
+</Movielist>
 
     </div>
   )

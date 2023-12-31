@@ -48,14 +48,24 @@ const Header = () => {
 
   return (
     <div>
-      <header>
-        <div className="flex justify-between">
-          <div></div>
+      <header className="bg-black ">
+        <div className="container bg-black d-flex justify-content-between align-items-center">
+          <div className="d-flex gap-4 align-items-center">
+            <img src="/assests/logo/logonet.png" width={80} alt="" />
+            <div>
+              <ul className="list-unstyled d-flex gap-4 m-0 align-items-cneter">
+                <li className="text_orange">Home</li>
+                <li className="text_orange">Movies</li>
+                <li className="text_orange">About</li>
+                <li className="text_orange">Contact</li>
+              </ul>
+            </div>
+          </div>
           <div>
             <button onClick={userOut} className="netflix_btn w_135px">
               Sign Out
             </button>
-            <div className=""></div>
+            
           </div>
         </div>
       </header>

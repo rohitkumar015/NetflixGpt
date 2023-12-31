@@ -21,7 +21,9 @@ const MainContainer = () => {
   
   return (
     <div className=' '>
-        <VideoTitle title={original_title} overview={overview}  ></VideoTitle>
+       <div className='position-relative'>
+       <VideoTitle title={original_title} overview={overview}   ></VideoTitle>
+       </div>
         <VideoBackground movieId={id} className="absolute top-0" ></VideoBackground>
     </div>
   )

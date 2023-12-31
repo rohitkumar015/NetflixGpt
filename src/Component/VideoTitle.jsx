@@ -4,12 +4,13 @@ const VideoTitle = (props) => {
   const { title, overview } = props;
   console.log("video container" + title);
   return (
-    <div className="  container">
-      <div className="absolute bottom-7 ">
+   <div className="container w-100">
+     <div className="position-absolute bg_shadow container video_title " style={{height:'100vh',}}>
+      <div className="position-absolute bottom-0  overflow-hidden " >
         <h2 className="text-white text_shadow">{title}</h2>
         <p className="text-white text_shadow">{overview}</p>
-        <div className="flex  items-center gap-2">
-          <button className="flex justify-center items-center bg-orange-400 px-3 py-2 rounded-lg text-white">
+        <div className="d-flex  align-items-center gap-2">
+          <button className="d-flex watch_btn justify-center align-items-center bg-orange-400 px-3 py-2 rounded-lg text-white">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +18,7 @@ const VideoTitle = (props) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="" style={{width:'30px'}} 
               >
                 <path
                   strokeLinecap="round"
@@ -26,9 +27,9 @@ const VideoTitle = (props) => {
                 />
               </svg>
             </span>{" "}
-            Play
+            Play Now
           </button>
-          <button className="flex justify-center items-center bg-slate-700 opacity-70 px-3 py-2 rounded-lg text-white">
+          <button className="d-flex bg_gray rounded border-0   justify-content-center align-items-center bg-slate-700 opacity-70 px-3 py-2 rounded-lg text-white">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,7 @@ const VideoTitle = (props) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className=""  style={{width:'30px'}}
               >
                 <path
                   strokeLinecap="round"
@@ -50,6 +51,7 @@ const VideoTitle = (props) => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

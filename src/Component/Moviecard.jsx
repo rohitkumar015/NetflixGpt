@@ -15,22 +15,22 @@ const Moviecard = ({ posterPath, ratings, originalTitle, discription }) => {
   }
 
   return (
-    <div>
-      <div className="movie_container">
-        <div className="movie_poster">
-          <img src={Img_Url_Cdn + posterPath} className="rounded-lg" alt="" />
+  
+      <div className="movie_container w200px ">
+        <div className="movie_poster w-100 ">
+          <img src={Img_Url_Cdn + posterPath} className=" w-100  rounded2" alt="" />
         </div>
-        <h4 className="truncate">{originalTitle}</h4>
+        <h4 className="text-truncate text_white">{originalTitle}</h4>
         <div>
-          {/* <h6>{name}</h6> */}
-          <p style={{ color: color }} className="font-semibold m-0">
+          
+          <p style={{ color: color }} className="font-semibold m-0 ">
             Ratings: {ratingModified}
           </p>
-          <p className="text-gray-700 text_truncate3">{discription}</p>
-          <button className="bg-orange-400 text-white p-2 rounded w-28">Watch</button>
+          <p className="text_white text_truncate3">{discription}</p>
+          <button className="watch_btn">Watch Now</button>
         </div>
       </div>
-    </div>
+    
   );
 };
 
