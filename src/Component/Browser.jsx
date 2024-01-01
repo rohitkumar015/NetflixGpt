@@ -20,7 +20,7 @@ const Browser = () => {
 
   return (
     <div>
-      <Header></Header>
+      {/* <Header></Header> */}
       <MainContainer></MainContainer>
       <SecondaryContainer></SecondaryContainer>
     </div>
