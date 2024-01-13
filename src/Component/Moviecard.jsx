@@ -20,13 +20,13 @@ const Moviecard = ({ posterPath, ratings, originalTitle, discription }) => {
         <div className="movie_poster w-100 ">
           <img src={Img_Url_Cdn + posterPath} className=" w-100  rounded2" alt="" />
         </div>
-        <h4 className="text-truncate text_white">{originalTitle}</h4>
+        <h5 className="text-truncate text-white m-0 mt-1">{originalTitle}</h5>
         <div>
           
-          <p style={{ color: color }} className="font-semibold m-0 ">
+          <small style={{ color: color }} className="font-semibold m-0  ">
             Ratings: {ratingModified}
-          </p>
-          <p className="text_white text_truncate3">{discription}</p>
+          </small>
+          <small className="text_white text_truncate3 mb-2">{discription}</small>
           <button className="watch_btn">Watch Now</button>
         </div>
       </div>

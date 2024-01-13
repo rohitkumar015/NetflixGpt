@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
-import Header from './Header'
-import { API_Options } from '../Utils/constant';
+import React from 'react'
 import useNowPlaying from '../hooks/useNowPlaying';
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
-import useMovieTrailer from '../hooks/useMovieTrailer';
-import usePopularPlaying from '../hooks/useTopRatedPlaying';
 import useTopRatedPlaying from '../hooks/useTopRatedPlaying';
 import useUpcoming from '../hooks/useUpcoming';
+import Header from '../Component/Header'
 
 const Browser = () => {
 
@@ -20,7 +17,7 @@ const Browser = () => {
 
   return (
     <div>
-      {/* <Header></Header> */}
+      <Header></Header>
       <MainContainer></MainContainer>
       <SecondaryContainer></SecondaryContainer>
     </div>

@@ -75,8 +75,8 @@ const Login = () => {
             className="bg_image "
             alt=""
           />
-          <div className="container">
-            <div className="d-flex justify-center align-items-center min-h-screen ">
+          <div className="container h100">
+            <div className="d-flex h100 justify-content-center align-items-center min-h-screen ">
               <div className="black_div ">
                 <form action="" onSubmit={handleSubmit}>
                   <div className="form_div">
@@ -127,12 +127,14 @@ const Login = () => {
                     </div>
                   </div>
                 </form>
-                <p className="text-gray-500">
-                  New to Netflix ?{" "}
-                  <NavLink to="./Signup" className="text-white">
+                <div className="d-flex j align-items-center gap-2">
+                <p className="text_gradient fw-semibold m-0">
+                  New to Netflix ? {" "}
+                  
+                </p><NavLink to="./Signup" className="text-white">
                     Sign up now.
                   </NavLink>
-                </p>
+                </div>
               </div>
             </div>
           </div>

@@ -57,42 +57,37 @@
 .watch_btn {
     padding: 10px;
     border-radius: 10px;
-    background-image: linear-gradient(115deg, #FF8008 12%, #FFC837 78%);
- 
+    /* background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat; */
+    background: linear-gradient(15deg, #f09f33,#FF8008) ;
+    background-size: 300%;
     color: white;
+    background-position: left center;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     border: none;
-    animation: plays ease infinite;
-    -webkit-animation: plays ease 10s infinite;
+    transition: background .3s ease;
+    -webkit-transition: background .3s ease;
+    -moz-transition: background .3s ease;
+    -ms-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    width: fit-content;
 }
 
-@keyframes plays {
-    0% {
-        background-position: 0px;
-    }
-    20% {
-        background-position: -110px;
-    }
-   
-    50% {
-        background-position: -210px;
-    }
-    
-    100% {
-        background-position: -390px;
-    }
+.watch_btn:hover {
+  background-size: 320%;
+  background-position: right center;
 }
+
 .netflix_btn{
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
- 
-    background: linear-gradient(to right, #FF8008 12%, #FFC837 78%, #FF8008 100%);
+    /* background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat; */
+    background: linear-gradient(15deg, #880088, #aa2068, #880088) no-repeat;
     color: white;
     display: flex;
     justify-content: center;
@@ -102,7 +97,9 @@
     border: 0;
  }
 .bg_orange{
-    background-color: #ff8c00;
+    /* background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat; */
+    background: linear-gradient(15deg, #880088, #aa2068, #880088) no-repeat;
+
 }
 .rounded2{
     border-radius: 10px !important;
@@ -134,10 +131,25 @@
     overflow: hidden;
 }
 
-
-
-
 .mySwiper{
     width: 100%;
 }
 
+input::placeholder{
+    color: #f8f8f8;
+}
+
+input{
+    color: #f8f8f8;
+}
+
+.text_gradient {
+    background: -webkit-linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d) no-repeat;
+    background: -webkit-linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d) no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    width: fit-content;
+   
+  
+  }

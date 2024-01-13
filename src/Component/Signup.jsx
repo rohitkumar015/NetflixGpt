@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { newUser } from "../Utils/validate";
 
@@ -12,9 +12,8 @@ import { addUser } from "../Utils/userSlice";
 // import { auth } from "../Utils/firebase";
 
 const Signup = () => {
-
-  const navigate =useNavigate()
-  const userDispatch=useDispatch();
+  const navigate = useNavigate();
+  const userDispatch = useDispatch();
   const {
     values,
     errors,
@@ -37,38 +36,41 @@ const Signup = () => {
       console.log(values);
       handleReset();
       // const auth = getAuth(app);
-      
-      createUserWithEmailAndPassword(auth, values.email, values.password ,values.name)
-     
+
+      createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password,
+        values.name
+      )
         .then((userCredential) => {
-         
           const user = userCredential.user;
-          const userPayload={
+          const userPayload = {
             uid: user.uid,
-            name:values.name,
+            name: values.name,
             email: user.email,
-            photoURL:user.photoURL,
-          }
+            photoURL: user.photoURL,
+          };
 
           updateProfile(user, {
-            displayName: values.name, photoURL: "assests/bgimages/IMG-20230526-WA0041 (1).jpg"
-          }).then(() => {
-            // Profile updated!
-            navigate("/browser") 
-          }).catch((error) => {
-            console.log(error.message)
-            navigate("/Login") 
-          });
+            displayName: values.name,
+            photoURL: "assests/bgimages/IMG-20230526-WA0041 (1).jpg",
+          })
+            .then(() => {
+              // Profile updated!
+              navigate("/browser");
+            })
+            .catch((error) => {
+              console.log(error.message);
+              navigate("/Login");
+            });
 
-          userDispatch(addUser(userPayload))
-        console.log(user)
-        
-          
+          userDispatch(addUser(userPayload));
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-     
         });
     },
   });
@@ -82,8 +84,8 @@ const Signup = () => {
             className="bg_image "
             alt=""
           />
-          <div className="container">
-            <div className="d-flex justify-center align-items-center min-h-screen ">
+          <div className="container h100">
+            <div className="d-flex h100 justify-content-center align-items-center min-h-screen ">
               <div className="black_div ">
                 <form action="" onSubmit={handleSubmit}>
                   <div className="form_div">
@@ -104,7 +106,7 @@ const Signup = () => {
                         />
                       </div>
                       {errors.name && touched.name && (
-                        <p className="text-red-500 m-0">{errors.name}</p>
+                        <p className="text-danger m-0">{errors.name}</p>
                       )}
                       <div className="col-12 mt-3">
                         <input
@@ -118,7 +120,7 @@ const Signup = () => {
                         />
                       </div>
                       {errors.email && touched.email && (
-                        <p className="text-red-500 m-0">{errors.email}</p>
+                        <p className="text-danger m-0">{errors.email}</p>
                       )}
                       <div className="col-12 mt-3">
                         <input
@@ -132,7 +134,7 @@ const Signup = () => {
                         />
                       </div>
                       {errors.password && touched.password && (
-                        <p className="text-red-500 m-0">{errors.password}</p>
+                        <p className="text-danger m-0">{errors.password}</p>
                       )}
                       <div className="col-12 mt-3">
                         <input
@@ -146,7 +148,7 @@ const Signup = () => {
                         />
                       </div>
                       {errors.confirmPassword && touched.confirmPassword && (
-                        <p className="text-red-500 m-0">
+                        <p className="text-danger m-0">
                           {errors.confirmPassword}
                         </p>
                       )}
@@ -159,12 +161,14 @@ const Signup = () => {
                     </div>
                   </div>
                 </form>
-                <p className="text-gray-500">
-                  Already have a account ?{" "}
+                <div className="d-flex align-items-center gap-2">
+                  <p className="text_gradient fw-semibold m-0 ">
+                    Already have a account ?{" "}
+                  </p>
                   <NavLink to="/" className="text-white ">
                     Sign In now.
                   </NavLink>
-                </p>
+                </div>
               </div>
             </div>
           </div>

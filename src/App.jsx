@@ -29,7 +29,7 @@ function App() {
     <div className="">
       <RouterProvider router={appRouters}>
        
-       <Body></Body>
+       <Browser></Browser>
      
       </RouterProvider>
     </div>
