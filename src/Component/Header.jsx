@@ -63,9 +63,9 @@ const Header = () => {
             <div>
               <ul className="list-unstyled d-flex gap-4 m-0 align-items-cneter">
                 <li className="text_orange">Home</li>
-                <li className="text_orange">Movies</li>
+                {/* <li className="text_orange">Movies</li>
                 <li className="text_orange">About</li>
-                <li className="text_orange">Contact</li>
+                <li className="text_orange">Contact</li> */}
               </ul>
             </div>
           </div>
