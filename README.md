@@ -43,5 +43,11 @@ Here I am going to use 2 library for form validation.
     - use of customhook -> useNowplaying
 # Created movieSlice
     -added to store 
+# Create CustomHooks
+    - useNowPlaying
+    - useMovieTrailer
+    - useTopRatedPlaying
+    - useUpcoming
 
+# Created GptSearch Feature 
     

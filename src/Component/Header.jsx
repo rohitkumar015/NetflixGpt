@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
 import { auth } from "../Utils/firebase";
 import { addUser, removeUser } from "../Utils/userSlice";
+import { toggleGptSearch } from "../Utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -22,6 +23,13 @@ const Header = () => {
       });
   };
 
+  // handle gpt search
+  
+  const gptDispatch=useDispatch()
+  const handleGptsearch=()=>{
+   gptDispatch(toggleGptSearch())
+
+  }
   useEffect(() => {
    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -61,9 +69,15 @@ const Header = () => {
               </ul>
             </div>
           </div>
-          <div>
+          {/* <div>
             <button onClick={userOut} className="netflix_btn w_135px">
               Sign Out
+            </button>
+            
+          </div> */}
+          <div>
+            <button onClick={handleGptsearch} className="netflix_btn w_135px">
+              GPT Search
             </button>
             
           </div>

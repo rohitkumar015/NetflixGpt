@@ -25,7 +25,7 @@ const Movielist = ({ title, movies }) => {
   }
   return (
     <div className="container ">
-      <h3 className="text-white pt-4">{title}</h3>
+      <h3 className="text-white mt-3 pt-4">{title}</h3>
       {/* <div className="">
         <div className="d-flex align-items-center playlist">
           {movies.map((movie) => (

@@ -5,6 +5,8 @@ import SecondaryContainer from './SecondaryContainer';
 import useTopRatedPlaying from '../hooks/useTopRatedPlaying';
 import useUpcoming from '../hooks/useUpcoming';
 import Header from '../Component/Header'
+import { useSelector } from 'react-redux';
+import GptContainer from './GptContainer';
 
 const Browser = () => {
 
@@ -13,13 +15,15 @@ const Browser = () => {
 
   const upcomingPlying=useUpcoming()
    
-
+  const isGptVisible=useSelector((state)=>state.gpt.gptShow)
 
   return (
     <div>
       <Header></Header>
-      <MainContainer></MainContainer>
-      <SecondaryContainer></SecondaryContainer>
+     {
+      isGptVisible ? <> <MainContainer></MainContainer>
+      <SecondaryContainer></SecondaryContainer></>:<GptContainer></GptContainer>
+     }
     </div>
   )
 }

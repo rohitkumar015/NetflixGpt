@@ -87,7 +87,7 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     /* background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat; */
-    background: linear-gradient(15deg, #880088, #aa2068, #880088) no-repeat;
+    background: linear-gradient(15deg, #f09f33,#FF8008) ;
     color: white;
     display: flex;
     justify-content: center;
@@ -98,7 +98,7 @@
  }
 .bg_orange{
     /* background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat; */
-    background: linear-gradient(15deg, #880088, #aa2068, #880088) no-repeat;
+    background: linear-gradient(15deg, #f09f33,#FF8008) ;
 
 }
 .rounded2{
